@@ -1,4 +1,4 @@
-### https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-nodes.php
+### https://www.tutorialrepublic.com/javascript-tutorial/javascript-dom-n
 
 ### 木易杨 https://muyiy.cn/
 
