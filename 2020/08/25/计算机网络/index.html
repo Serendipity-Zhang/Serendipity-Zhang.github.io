@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="比较 http0.9 和http1.0 的区别 http0.9 只是一个简单的协议，只有一个get 方法，没有首部，目标用来获取HTML http1.0 协议大量的内容：首部、响应码、重定向、错误、条件请求、内容编码等1234567891011121314http0.9流程客户端,构建请求，通过DNS 查询IP 地址 ,三次握手建立TCP 连接,客户端发起请求,服务器相应。四次握手,断开 TCP连">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="Serendipity-Zhang">
+<meta property="og:description" content="比较 http0.9 和http1.0 的区别 http0.9 只是一个简单的协议，只有一个get 方法，没有首部，目标用来获取HTML http1.0 协议大量的内容：首部、响应码、重定向、错误、条件请求、内容编码等1234567891011121314http0.9流程客户端,构建请求，通过DNS 查询IP 地址 ,三次握手建立TCP 连接,客户端发起请求,服务器相应。四次握手,断开 TCP连">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-25T14:55:33.067Z">
+<meta property="article:modified_time" content="2020-08-25T14:55:33.067Z">
+<meta property="article:author" content="zly">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>计算机网络</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/category/">分类</a></li>
+         
+          <li><a href="/projects/">项目</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/08/25/notes/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&text=计算机网络" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&is_video=false&description=计算机网络" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=计算机网络&body=Check out this article: http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&name=计算机网络&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&t=计算机网络" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#比较-http0-9-和http1-0-的区别"><span class="toc-number">1.</span> <span class="toc-text">比较 http0.9 和http1.0 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于-http1-1-以及http-2"><span class="toc-number">2.</span> <span class="toc-text">关于 http1.1 以及http 2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP-的几种请求方法-用途"><span class="toc-number">3.</span> <span class="toc-text">HTTP 的几种请求方法 用途</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#从浏览器地址栏-输入URL-到显示页面的步骤"><span class="toc-number">4.</span> <span class="toc-text">从浏览器地址栏 输入URL 到显示页面的步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WEB-的性能优化"><span class="toc-number">5.</span> <span class="toc-text">WEB 的性能优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web-性能优化技术-（减少客户端网络延迟和优化页面渲染性能来提升web性能）"><span class="toc-number">6.</span> <span class="toc-text">web 性能优化技术 （减少客户端网络延迟和优化页面渲染性能来提升web性能）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#http1-1"><span class="toc-number">7.</span> <span class="toc-text">http1.1</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        计算机网络
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Serendipity-Zhang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-08-25T14:55:33.067Z" itemprop="datePublished">2020-08-25</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="比较-http0-9-和http1-0-的区别"><a href="#比较-http0-9-和http1-0-的区别" class="headerlink" title="比较 http0.9 和http1.0 的区别"></a>比较 http0.9 和http1.0 的区别</h1><ul>
+<li>http0.9 只是一个简单的协议，只有一个get 方法，没有首部，目标用来获取HTML</li>
+<li>http1.0 协议大量的内容：首部、响应码、重定向、错误、条件请求、内容编码等<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">http0.9流程</span><br><span class="line"></span><br><span class="line">客户端,构建请求，通过DNS 查询IP 地址 ,</span><br><span class="line">三次握手建立TCP 连接,客户端发起请求,服务器相应。</span><br><span class="line">四次握手,断开 TCP连接（与服务器只有一个来回）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http1.0 流程</span><br><span class="line"></span><br><span class="line">客户端,构建请求,通过DNS查询IP地址,</span><br><span class="line">三次握手建立 TCP连接 ,客户端发起请求,服务器响应,</span><br><span class="line">四次握手,断开TCP连接(与服务器只有两个来回)</span><br><span class="line"></span><br><span class="line">--- 因为不足缺陷就有了http1.1 ---</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="关于-http1-1-以及http-2"><a href="#关于-http1-1-以及http-2" class="headerlink" title="关于 http1.1 以及http 2"></a>关于 http1.1 以及http 2</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http1.1 中浏览器再也不用为每个请求重新发起一个TCP连接,增加内容有：缓存相关首部的扩展</span><br><span class="line">OPTIONS方法，UPgrade首部,Range请求，压缩和传输编码,管道化等。</span><br><span class="line">但是还是不能够满足不了现在的web开发展需求,so ,就有了http 2 版本。</span><br><span class="line"></span><br><span class="line">使用http2 会比http1.1 在使用 TCP 时 用户体验的感知多数延迟的效果有了量化 的改善，</span><br><span class="line">以及提升了TCP 连接 的利用率(并行的实现机制不依赖与服务器的建立多个连接)</span><br><span class="line"></span><br><span class="line">对于http2 ，你可以用来运行一个 HTTP2 的服务器,获取并安装一个http2 的web服务器,</span><br><span class="line">下载并安装 一张TLS 证书,让浏览器和服务器 通过http2 来连接 （从数字证书认证机构申请 一张证书）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">了解http2 的协议 先让我们了解一下 web 页面的请求,就是用户在浏览器中呈现的效果,</span><br><span class="line">发生了些什么：获取资源的步骤：</span><br><span class="line">把待 请求的URL 放入队列，判断URL 是否亦在请求队列，不在的话 就结束, </span><br><span class="line">在的话就判断 请求域名 是否在DNS缓存中，没有的话就解析域名，</span><br><span class="line">有的话就就开启 TCP连接 ,进行HTTP 请求 ,初始化 完成TLS协议握手,向页面对应的URL 发送请求。</span><br><span class="line"></span><br><span class="line">接收响应以及 页面渲染 步骤：</span><br><span class="line">接收请求,判断 是否HTML 页面 ,是就解析HTML,对页面的引用资源排优先级，</span><br><span class="line">添加引用资源到请求队列（如果页面上的关键资源已经接收到,就开始渲染页面）,</span><br><span class="line">判断是否还要继续接收资源,继续解析渲染,直到结束。</span><br></pre></td></tr></table></figure>
+<h1 id="HTTP-的几种请求方法-用途"><a href="#HTTP-的几种请求方法-用途" class="headerlink" title="HTTP 的几种请求方法 用途"></a>HTTP 的几种请求方法 用途</h1><ul>
+<li>第一种方法 GET ：发送一个请求 来获取 服务器上的 某一些资源</li>
+<li>第二种方法 POST:向URL 指定的资源提交数据或附加新的数据</li>
+<li>第三种方法 PUT ：和POST 方法一样，可以向服务器 提交数据，但是他们之间<br>也有所不同PUT 指定了 资源在服务器的位置，而POST没有哦<ul>
+<li>第四种方法 HEAD 方法：请求页面的首部</li>
+<li>第五种DELETE方法 ：删除服务器中的某资源 </li>
+<li>第六种OPTIOPS 方法： 它用于获取当前URL 所支持的方法,如果请求成功,<br>在 ALLOW 的头包含 类似GET POST 等信息。</li>
+<li>第七种 TARCE 方法：用于激发一个远程的,应用曾的请求消息回路。</li>
+<li>第八种 CONNECT 方法：把请求连接转换到TCP/IP通道。</li>
+</ul>
+</li>
+</ul>
+<h1 id="从浏览器地址栏-输入URL-到显示页面的步骤"><a href="#从浏览器地址栏-输入URL-到显示页面的步骤" class="headerlink" title="从浏览器地址栏 输入URL 到显示页面的步骤"></a>从浏览器地址栏 输入URL 到显示页面的步骤</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">浏览器 根据请求的URL交给DNS 域名解析,查找真正的IP地址,向服务器发送请求,</span><br><span class="line">服务器交给后台处理后,返回数据,浏览器会接收到文件数据，比如：html,css,js 图像等。</span><br><span class="line">然后浏览器 会对加载的到的资源进行语法解析，建立相应的内部数据结构,</span><br><span class="line">载入 解析 到的资源文件，页面渲染，完成显示页面效果</span><br><span class="line"></span><br><span class="line">详解：</span><br><span class="line">从浏览器 接受url，开始进行网络请求线程，并发出一个完正的HTTP 请求；</span><br><span class="line">从服务器段接受请求到对应的后台接收请求，然后是后台和前台的http交互，</span><br><span class="line">其中的缓存问题（HTTP缓存），浏览器接收到的http 数据包的解析流程，</span><br><span class="line">css的可视化格式模型，js引擎的解析过程等，其他呈现页面效果。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.渲染引擎，是负责取得网页的内容，整理信息,以及计算 网页的 显示 方式，</span><br><span class="line">然后输出 到显示器 上</span><br><span class="line">2.js引擎 是用于解析 和执行js 来实现网页 的 动态效果</span><br><span class="line"></span><br><span class="line">---------------</span><br><span class="line">浏览器的内核 的不同 对于 网页的 语法解释 会有不同，所以渲染 的效果也不同，</span><br><span class="line">其实吗，最开始 渲染引擎 和js 引擎是没有区别的，后来js引擎越来越独立 so， </span><br><span class="line">内核就倾向于渲染引擎了。对于资源请求&#x2F;获取，资源响应&#x2F;页面渲染，</span><br><span class="line">会给网络带宽和设备资源带来压力，</span><br><span class="line">这个时候就会考虑到web的性能优化。</span><br></pre></td></tr></table></figure>
+<h1 id="WEB-的性能优化"><a href="#WEB-的性能优化" class="headerlink" title="WEB 的性能优化"></a>WEB 的性能优化</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">其中里面的性能关键</span><br><span class="line">什么是数据包 </span><br><span class="line">数据包(IP数据包) 指封装在 固定结构 的一系列 字节，</span><br><span class="line">它定义了数据包的长度，传输的细节，以及其他 与tcp 相关 的 信息。</span><br><span class="line">延迟 ：指ip 数据包从一个网络端点 所花费的时间</span><br><span class="line">（所花费的时间在于往返时延，是延迟的时间的两倍）</span><br><span class="line">带宽： 只要带宽没有饱和，两个端点 的连接会一次处理 </span><br><span class="line">尽可能多的 数据量（所以带宽可能会成为性能 的瓶颈）</span><br><span class="line">建立连接时间:在客户端和服务器之间 建立连接往返数据（三次握手）</span><br><span class="line">TCP的三次握手：客户端向服务器 发送 SYN包,服务器端 返回相应的SYN的 ACK响应 </span><br><span class="line">以及新的 SYN包，然后客户端返回相应的 ACK（在客户端和服务器之间建立正常的TCP网络连接时，</span><br><span class="line">客户端首先发出一个SYN消息，服务器 使用 SYN+ACK 应答 表示接受 这个消息 ，</span><br><span class="line">最后客户端以ACk消息响应 ）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SYN 是同步序列编号，是TCP&#x2F;IP 建立连接 时使用 的 握手信息</span><br><span class="line">ACK 是确认字符，在数据通信中，接受站给发给站的 一种 传输类 的 控制字符 。</span><br><span class="line">表示 发来的 数据已经确认 接受无误。</span><br><span class="line">在TCP&#x2F;IP协议中，如果接受方成功的接收到了数据，</span><br><span class="line">那么会回复一个ACk数据,通过ACK 信号 有自己固定格式，长度大小，</span><br><span class="line">由接收方回复给发送方。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">详解 三次握手</span><br><span class="line">第一次握手,建立连接时，客户端发送SYN包到服务器,并进入到SYN_SENT状态，</span><br><span class="line">等待服务器确认,其中SYN就是同步序列编号</span><br><span class="line"></span><br><span class="line">第二次握手 服务器收到SNY包，必须确认客户的SYN,同时自己也发送 一个SYN 包,</span><br><span class="line">即是 SYN+ACK 包，此时服务器进入 SYN_RECV状态</span><br><span class="line"></span><br><span class="line">第三次握手 ，客户端收到服务器 的SYN+ACK包，向服务器发送确认包ACK,此包发送完毕，</span><br><span class="line">客户端和服务器进入ESTABLISHED(TCP成功连接)状态,完成三次握手。</span><br><span class="line">完成三次握手，客户端和服务器 开始传输数据</span><br><span class="line"></span><br><span class="line">-----------------------</span><br><span class="line">  TLS协商时间 (TLS 会造成 额外的往返传输)</span><br><span class="line">  1. 客户端 发起HTTP 连接,需要进行传输层 安全协议协商</span><br><span class="line">  2.TLS用来取代 安全套接层SSL</span><br><span class="line">  除了网络，还有页面内容本身或服务器性能，如首字节时间 TTFB ，</span><br><span class="line">  内容下载时间，开始渲染时间，文档加载完成时间等。</span><br><span class="line">  那么什么是 TTFB ,它是指 客户端从开始定位 到web页面 ,</span><br><span class="line">  至接受 到主体页面响应 的第一字节 所耗费 的 内容下载 时间,他的测量,</span><br><span class="line">  从浏览器 发起请求 至收到 其 第一字节之间的耗时。</span><br><span class="line">  内容下载 时间 是等同于 被请求资源 的最后字节到达的时间。</span><br><span class="line">  开始渲染时间 从客户端 看到空白页面的时长。</span><br></pre></td></tr></table></figure>
+<h1 id="web-性能优化技术-（减少客户端网络延迟和优化页面渲染性能来提升web性能）"><a href="#web-性能优化技术-（减少客户端网络延迟和优化页面渲染性能来提升web性能）" class="headerlink" title="web 性能优化技术 （减少客户端网络延迟和优化页面渲染性能来提升web性能）"></a>web 性能优化技术 （减少客户端网络延迟和优化页面渲染性能来提升web性能）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">优化技术</span><br><span class="line">- DNS查询优化</span><br><span class="line">- 客户端缓存</span><br><span class="line">- 优化TCP 连接</span><br><span class="line">- 避免重定向</span><br><span class="line">- 网络边缘 的缓存</span><br><span class="line">- 条件缓存</span><br><span class="line">- 压缩和代码极简化</span><br><span class="line">- 图片优化</span><br></pre></td></tr></table></figure>
+<h1 id="http1-1"><a href="#http1-1" class="headerlink" title="http1.1"></a>http1.1</h1><ul>
+<li>改进 持久连接 和cdn 域名的分片机制</li>
+<li>不成熟 的HTTP管道化</li>
+<li>提供虚拟主机支持</li>
+<li>对动态生成 的内容完美支持</li>
+<li>引入cookie以及安全机制<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">对于http1的问题，迎接来了HTTP2 其中http1 的问题</span><br><span class="line">队头阻塞 ，大多数情况下，浏览器会希望同时获取许多资源，</span><br><span class="line">但http1 未提供机制 来同时请求这些资源</span><br><span class="line">如果仅是使用一个连接，需要发送请求，等待响应，然后才能发送下一个请求。</span><br><span class="line"></span><br><span class="line">在http1 中 要给特性 为管道化，可以 允许一次 发送一组请求，</span><br><span class="line">但是需要按照发送顺序依次接受 响应，</span><br><span class="line">所以在请求应答过程中，如果发生什么情况,剩下的工作都会被阻塞，</span><br><span class="line">这就是队头 阻塞（阻塞在那次请求应答发生错误），</span><br><span class="line">阻塞网络传输和web页面的渲染，直到失去响应。</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+  </div>
+  <div>
+    <a href="https://github.com/Serendipity-Zhang/Serendipity-Zhang.github.io/tree/myblog/source/_posts/计算机网络.md" target="_blank">编辑</a>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/category/">分类</a></li>
+         
+          <li><a href="/projects/">项目</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#比较-http0-9-和http1-0-的区别"><span class="toc-number">1.</span> <span class="toc-text">比较 http0.9 和http1.0 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于-http1-1-以及http-2"><span class="toc-number">2.</span> <span class="toc-text">关于 http1.1 以及http 2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP-的几种请求方法-用途"><span class="toc-number">3.</span> <span class="toc-text">HTTP 的几种请求方法 用途</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#从浏览器地址栏-输入URL-到显示页面的步骤"><span class="toc-number">4.</span> <span class="toc-text">从浏览器地址栏 输入URL 到显示页面的步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#WEB-的性能优化"><span class="toc-number">5.</span> <span class="toc-text">WEB 的性能优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web-性能优化技术-（减少客户端网络延迟和优化页面渲染性能来提升web性能）"><span class="toc-number">6.</span> <span class="toc-text">web 性能优化技术 （减少客户端网络延迟和优化页面渲染性能来提升web性能）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#http1-1"><span class="toc-number">7.</span> <span class="toc-text">http1.1</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&text=计算机网络" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&is_video=false&description=计算机网络" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=计算机网络&body=Check out this article: http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&title=计算机网络" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&name=计算机网络&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/08/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/&t=计算机网络" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2020
+    zly
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/category/">分类</a></li>
+         
+          <li><a href="/projects/">项目</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
