@@ -1,6 +1,6 @@
 ---
 title: Day1:知识点记录
-date: new Date()
+date: 2020-9-18
 ---
  ## 函数声明方式
 ```javascript
