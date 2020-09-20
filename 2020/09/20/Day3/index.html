@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="数组方法总结数组方法备忘单：  添加&#x2F;删除元素： push(...items) —— 向尾端添加元素， pop() —— 从尾端提取一个元素， shift() —— 从首端提取一个元素， unshift(...items) —— 向首端添加元素， splice(pos, deleteCount, ...items) —— 从 index 开始删除 deleteCount 个元素，并在当前位置插入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day2:知识点记录">
+<meta property="og:url" content="http://yoursite.com/2020/09/20/Day3/index.html">
+<meta property="og:site_name" content="Serendipity-Zhang">
+<meta property="og:description" content="数组方法总结数组方法备忘单：  添加&#x2F;删除元素： push(...items) —— 向尾端添加元素， pop() —— 从尾端提取一个元素， shift() —— 从首端提取一个元素， unshift(...items) —— 向首端添加元素， splice(pos, deleteCount, ...items) —— 从 index 开始删除 deleteCount 个元素，并在当前位置插入">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-20T23:51:53.575Z">
+<meta property="article:author" content="zly">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Day2:知识点记录</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/category/">分类</a></li>
+         
+          <li><a href="/projects/">项目</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/09/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/09/19/Day2/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/20/Day3/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/20/Day3/&text=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/20/Day3/&is_video=false&description=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Day2:知识点记录&body=Check out this article: http://yoursite.com/2020/09/20/Day3/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/20/Day3/&name=Day2:知识点记录&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/20/Day3/&t=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数组方法总结"><span class="toc-number">1.</span> <span class="toc-text">数组方法总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法-旋转数组"><span class="toc-number">2.</span> <span class="toc-text">算法 旋转数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#旋转数组"><span class="toc-number">3.</span> <span class="toc-text">旋转数组</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Day2:知识点记录
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Serendipity-Zhang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-09-20T00:00:00.000Z" itemprop="datePublished">2020-09-20</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="数组方法总结"><a href="#数组方法总结" class="headerlink" title="数组方法总结"></a>数组方法总结</h1><p>数组方法备忘单：</p>
+<ul>
+<li>添加/删除元素：<ul>
+<li><code>push(...items)</code> —— 向尾端添加元素，</li>
+<li><code>pop()</code> —— 从尾端提取一个元素，</li>
+<li><code>shift()</code> —— 从首端提取一个元素，</li>
+<li><code>unshift(...items)</code> —— 向首端添加元素，</li>
+<li><code>splice(pos, deleteCount, ...items)</code> —— 从 <code>index</code> 开始删除 <code>deleteCount</code> 个元素，并在当前位置插入 <code>items</code>。</li>
+<li><code>slice(start, end)</code> —— 创建一个新数组，将从位置 <code>start</code> 到位置 <code>end</code>（但不包括 <code>end</code>）的元素复制进去。</li>
+<li><code>concat(...items)</code> —— 返回一个新数组：复制当前数组的所有元素，并向其中添加 <code>items</code>。如果 <code>items</code> 中的任意一项是一个数组，那么就取其元素。</li>
+</ul>
+</li>
+<li>搜索元素：<ul>
+<li><code>indexOf/lastIndexOf(item, pos)</code> —— 从位置 <code>pos</code> 开始搜索 <code>item</code>，搜索到则返回该项的索引，否则返回 <code>-1</code>。</li>
+<li><code>includes(value)</code> —— 如果数组有 <code>value</code>，则返回 <code>true</code>，否则返回 <code>false</code>。</li>
+<li><code>find/filter(func)</code> —— 通过 <code>func</code> 过滤元素，返回使 <code>func</code> 返回 <code>true</code> 的第一个值/所有值。</li>
+<li><code>findIndex</code> 和 <code>find</code> 类似，但返回索引而不是值。</li>
+</ul>
+</li>
+<li>遍历元素：<ul>
+<li><code>forEach(func)</code> —— 对每个元素都调用 <code>func</code>，不返回任何内容。</li>
+</ul>
+</li>
+<li>转换数组：<ul>
+<li><code>map(func)</code> —— 根据对每个元素调用 <code>func</code> 的结果创建一个新数组。</li>
+<li><code>sort(func)</code> —— 对数组进行原位（in-place）排序，然后返回它。</li>
+<li><code>reverse()</code> —— 原位（in-place）反转数组，然后返回它。</li>
+<li><code>split/join</code> —— 将字符串转换为数组并返回。</li>
+<li><code>reduce(func, initial)</code> —— 通过对每个元素调用 <code>func</code> 计算数组上的单个值，并在调用之间传递中间结果。</li>
+</ul>
+</li>
+<li>其他：<ul>
+<li><code>Array.isArray(arr)</code> 检查 <code>arr</code> 是否是一个数组。</li>
+</ul>
+</li>
+</ul>
+<p>请注意，<code>sort</code>，<code>reverse</code> 和 <code>splice</code> 方法修改的是数组本身。</p>
+<p>这些是最常用的方法，它们覆盖 99％ 的用例。但是还有其他几个：</p>
+<ul>
+<li><p><a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Array/some" target="_blank" rel="noopener">arr.some(fn)</a>/<a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Array/every" target="_blank" rel="noopener">arr.every(fn)</a> 检查数组。</p>
+<p>与 <code>map</code> 类似，对数组的每个元素调用函数 <code>fn</code>。如果任何/所有结果为 <code>true</code>，则返回 <code>true</code>，否则返回 <code>false</code>。</p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Array/fill" target="_blank" rel="noopener">arr.fill(value, start, end)</a> —— 从索引 <code>start</code> 到 <code>end</code>，用重复的 <code>value</code> 填充数组。</p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin" target="_blank" rel="noopener">arr.copyWithin(target, start, end)</a> —— 将从位置 <code>start</code> 到 <code>end</code> 的所有元素复制到 <strong>自身</strong> 的 <code>target</code> 位置（覆盖现有元素）。</p>
+</li>
+</ul>
+<h1 id="算法-旋转数组"><a href="#算法-旋转数组" class="headerlink" title="算法 旋转数组"></a>算法 旋转数组</h1><h1 id="旋转数组"><a href="#旋转数组" class="headerlink" title="旋转数组"></a>旋转数组</h1><p>定一个数组，将数组中的元素向右移动 <em>k</em> 个位置，其中 <em>k</em> 是非负数。</p>
+<p>示例1：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>] 和 k = <span class="number">3</span></span><br><span class="line">输出: [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">解释:</span><br><span class="line">向右旋转 <span class="number">1</span> 步: [<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">向右旋转 <span class="number">2</span> 步: [<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">向右旋转 <span class="number">3</span> 步: [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>要求使用空间复杂度为 O(1) 的 <strong>原地</strong> 算法。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">rotate</span>(<span class="params">nums:number:[],k:number</span>):<span class="title">void</span></span>&#123;</span><br><span class="line">     <span class="keyword">let</span> len = nums.length  <span class="comment">//获取数组长度</span></span><br><span class="line">     k = k % len  </span><br><span class="line">     <span class="keyword">let</span> start = len - k</span><br><span class="line">     reverse(nums,<span class="number">0</span>,start - <span class="number">1</span>);</span><br><span class="line">     reverse(nums,<span class="number">0</span>,start,len - <span class="number">1</span>)</span><br><span class="line">     reverse(nums，<span class="number">0</span>，len - <span class="number">1</span>)  </span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reverse</span>(<span class="params">nums:number[],i:number,j:number</span>):<span class="title">void</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        [nums[i],num[j]] = [num[j],num[i]]</span><br><span class="line">        i++;</span><br><span class="line">        j--；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+  <div>
+    <a href="https://github.com/Serendipity-Zhang/Serendipity-Zhang.github.io/tree/myblog/source/_posts/Day3.md" target="_blank">编辑</a>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/category/">分类</a></li>
+         
+          <li><a href="/projects/">项目</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数组方法总结"><span class="toc-number">1.</span> <span class="toc-text">数组方法总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法-旋转数组"><span class="toc-number">2.</span> <span class="toc-text">算法 旋转数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#旋转数组"><span class="toc-number">3.</span> <span class="toc-text">旋转数组</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/20/Day3/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/20/Day3/&text=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/20/Day3/&is_video=false&description=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Day2:知识点记录&body=Check out this article: http://yoursite.com/2020/09/20/Day3/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/20/Day3/&title=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/20/Day3/&name=Day2:知识点记录&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/20/Day3/&t=Day2:知识点记录" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2020
+    zly
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/category/">分类</a></li>
+         
+          <li><a href="/projects/">项目</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
