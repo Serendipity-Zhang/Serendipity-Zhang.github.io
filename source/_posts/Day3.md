@@ -43,7 +43,7 @@ date: 2020-9-20
 
 - [arr.copyWithin(target, start, end)](https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin) —— 将从位置 `start` 到 `end` 的所有元素复制到 **自身** 的 `target` 位置（覆盖现有元素）。
 
-# 算法 旋转数组
+# 算法 189 旋转数组
 
 # 旋转数组
 

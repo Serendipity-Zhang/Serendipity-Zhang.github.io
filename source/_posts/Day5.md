@@ -43,4 +43,7 @@ var singleNumber = function(nums) {
 
 ```
 
+
+weakMap和weakSet 用来解决什么问题？Map和Set 有什么区别
+
  
