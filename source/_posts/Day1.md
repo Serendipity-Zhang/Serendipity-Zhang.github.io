@@ -60,6 +60,9 @@ let b = (a, 1) ;// b = 1
 
 # 算法题 删除排序数组中的重复项
 
+- 遍历移除法  array.splice(index,howmamg)
+
+
 
 
 
