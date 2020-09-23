@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环) indexOf 检查是否在另一个数组中存在123遍历其中一个数组nums1,在另一个数组nums2 中是否存在该元素- 存在放入到结果中，并在nums2中删除- 不存在则不做任何操作 123456789101112const intersect &#x3D; (nums1,nums2) &#x3D;&amp;gt">
+    <meta name="description" content="Object.keys、Object.values、Object.entries普通函数和Map 有什么区别调用语法 和返回值的不同1)Map 调用语法 map.keys()Object 调用语法是 Object.keys(obj)，而不是obj.keys()2)Map的返回值是可迭代项Object 的返回值是&quot;真正的数组&quot;Why?其一：  因为灵活性,在javascript中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Day5:知识点记录">
+<meta property="og:title" content="Day6:知识点记录">
 <meta property="og:url" content="http://yoursite.com/2020/09/23/Day6/index.html">
 <meta property="og:site_name" content="Serendipity-Zhang">
-<meta property="og:description" content="350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环) indexOf 检查是否在另一个数组中存在123遍历其中一个数组nums1,在另一个数组nums2 中是否存在该元素- 存在放入到结果中，并在nums2中删除- 不存在则不做任何操作 123456789101112const intersect &#x3D; (nums1,nums2) &#x3D;&amp;gt">
+<meta property="og:description" content="Object.keys、Object.values、Object.entries普通函数和Map 有什么区别调用语法 和返回值的不同1)Map 调用语法 map.keys()Object 调用语法是 Object.keys(obj)，而不是obj.keys()2)Map的返回值是可迭代项Object 的返回值是&quot;真正的数组&quot;Why?其一：  因为灵活性,在javascript中">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-23T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-23T05:18:47.592Z">
+<meta property="article:modified_time" content="2020-09-23T14:42:13.730Z">
 <meta property="article:author" content="zly">
 <meta name="twitter:card" content="summary">
     
@@ -36,7 +36,7 @@
         
     
     <!-- title -->
-    <title>Day5:知识点记录</title>
+    <title>Day6:知识点记录</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -95,21 +95,21 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/23/Day6/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/23/Day6/&text=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/23/Day6/&is_video=false&description=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Day5:知识点记录&body=Check out this article: http://yoursite.com/2020/09/23/Day6/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/23/Day6/&name=Day5:知识点记录&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/23/Day6/&t=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/23/Day6/&text=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/23/Day6/&is_video=false&description=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Day6:知识点记录&body=Check out this article: http://yoursite.com/2020/09/23/Day6/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/23/Day6/&name=Day6:知识点记录&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/23/Day6/&t=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#350-两个数组的交集-II-indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环"><span class="toc-number">1.</span> <span class="toc-text">350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环)</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-keys、Object-values、Object-entries"><span class="toc-number">1.</span> <span class="toc-text">Object.keys、Object.values、Object.entries</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#普通函数和Map-有什么区别"><span class="toc-number">2.</span> <span class="toc-text">普通函数和Map 有什么区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转换对象"><span class="toc-number">2.0.1.</span> <span class="toc-text">转换对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#exercise"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">exercise</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解构赋值"><span class="toc-number">3.</span> <span class="toc-text">解构赋值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#350-两个数组的交集-II-indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环"><span class="toc-number">4.</span> <span class="toc-text">350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环)</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -121,7 +121,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Day5:知识点记录
+        Day6:知识点记录
     </h1>
 
 
@@ -148,9 +148,51 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="350-两个数组的交集-II-indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环"><a href="#350-两个数组的交集-II-indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环" class="headerlink" title="350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环)"></a>350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环)</h1><ul>
+    <h1 id="Object-keys、Object-values、Object-entries"><a href="#Object-keys、Object-values、Object-entries" class="headerlink" title="Object.keys、Object.values、Object.entries"></a>Object.keys、Object.values、Object.entries</h1><h1 id="普通函数和Map-有什么区别"><a href="#普通函数和Map-有什么区别" class="headerlink" title="普通函数和Map 有什么区别"></a>普通函数和Map 有什么区别</h1><p>调用语法 和返回值的不同<br>1)<br>Map 调用语法 <code>map.keys()</code><br>Object 调用语法是 <code>Object.keys(obj)</code>，而不是obj.keys()<br>2)<br>Map的返回值是<code>可迭代项</code><br>Object 的返回值是<code>&quot;真正的数组&quot;</code><br>Why?<br>其一：</p>
+<blockquote>
+<p>因为灵活性,在javascript中,对象是所有复杂结构的基础。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如我们有一个自己创建的对象data,并可以实现它自己的data.values()方法,同时我们依然可以调用Object.values(data)方法</span><br></pre></td></tr></table></figure>
+<p>其二：</p>
+<blockquote>
+<p>Object.* 返回的是真正的数组对象，而不是迭代项,这主要是历史原因</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name:<span class="string">"join"</span>,</span><br><span class="line">  age:<span class="number">30</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(user))  <span class="comment">//["name","age"]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(user)) <span class="comment">//["join",30]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.entries(user)) <span class="comment">//[["name":"join"],["age":30]]</span></span><br></pre></td></tr></table></figure>
+
+<p>使用<code>Object.values</code>来遍历属性的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name:<span class="string">"join"</span>,</span><br><span class="line">  age:<span class="number">30</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> value <span class="keyword">of</span> <span class="built_in">Object</span>.values(user))&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value) <span class="comment">// join,then 30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<blockquote>
+<p> Object.keys/values/entries 会忽略 symbol 属性<br> 就像 for..in 循环一样，这些方法会忽略使用 Symbol(…) 作为键的属性。</p>
+</blockquote>
+</blockquote>
+<p>   通常这很方便。但是，如果我们也想要 Symbol 类型的键，那么这儿有一个单独的方法 Object.getOwnPropertySymbols，它会返回一个只包含 Symbol 类型的键的数组。另外，还有一种方法 Reflect.ownKeys(obj)，它会返回 所有 键。</p>
+<h3 id="转换对象"><a href="#转换对象" class="headerlink" title="转换对象"></a>转换对象</h3><p>因为对象缺少数组的方法比如map、filter。所以我们需要使用<br>Object.entries() ，然后再使用Object.fromEntries()</p>
+<ul>
+<li>使用Object.entries(obj) ,从中获取obj的键/值对组成的数组。</li>
+<li>对该数组适应数组的方法,比如map</li>
+<li>对结果数组使用Object.fromEntries(array)方法,将结果转换为对象。</li>
+</ul>
+<p>一个带有价格的对象,进行加倍</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> prices = &#123;</span><br><span class="line">  banana: <span class="number">1</span>,</span><br><span class="line">  orange: <span class="number">2</span>,</span><br><span class="line">  meat: <span class="number">4</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> doublePrices = <span class="built_in">Object</span>.fromEntries(</span><br><span class="line">  <span class="comment">// 转换为数组，之后使用 map 方法，然后通过 fromEntries 再转回到对象</span></span><br><span class="line">  <span class="built_in">Object</span>.entries(prices).map(<span class="function">(<span class="params">[key, value]</span>) =&gt;</span> [key, value * <span class="number">2</span>])</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(doublePrices.meat); <span class="comment">// 8</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="exercise"><a href="#exercise" class="headerlink" title="exercise"></a>exercise</h4><p>属性求和</p>
+<p>有一个带有任意数量薪水的 salaries 对象。</p>
+<p>编写函数 sumSalaries(salaries)，该函数使用 Object.values 和 for..of 循环返回所有薪水的总和。</p>
+<p>如果 salaries 是空对象，那么结果必须是 0。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"> <span class="keyword">let</span> salaries = &#123;</span><br><span class="line">     <span class="string">"John"</span>:<span class="number">100</span>,</span><br><span class="line">     <span class="string">"Pete"</span>:<span class="number">200</span>,</span><br><span class="line">     <span class="string">"Mary"</span>:<span class="number">300</span>,</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//方案一</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sunSararies</span>(<span class="params">salaries</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> num = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> value <span class="keyword">of</span> <span class="built_in">Object</span>.values(salaries))&#123;</span><br><span class="line">    num += value</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> num;  <span class="comment">//600</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//方案二</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sunSararies</span>(<span class="params">salaries</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.values(salaries).reduce(<span class="function">(<span class="params">sum,item</span>) =&gt;</span> sum+item,<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sunSararies(salaries)</span><br></pre></td></tr></table></figure>
+
+<p>计算属性数量</p>
+<p>计算一个函数count(obj),该函数返回对象中属性数量的数量:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name:<span class="string">'zhang'</span>,</span><br><span class="line">  age:<span class="number">30</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params">user</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.keys(user).length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">count(user)  <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h1><p>对象: 通过键来存储数据项的单个实体<br>数组：将数据收集到一个有序的集合中</p>
+<h1 id="350-两个数组的交集-II-indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环"><a href="#350-两个数组的交集-II-indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环" class="headerlink" title="350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环)"></a>350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环)</h1><ul>
 <li>indexOf 检查是否在另一个数组中存在<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">遍历其中一个数组nums1,在另一个数组nums2 中是否存在该元素</span><br><span class="line">- 存在放入到结果中，并在nums2中删除</span><br><span class="line">- 不存在则不做任何操作</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> intersect = <span class="function">(<span class="params">nums1,nums2</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> _result = [] <span class="comment">//定义一个空数组</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt;nums1.length;i++&gt;)&#123;</span><br><span class="line">    <span class="keyword">let</span> j =  nums2.indexOf(nums1[i])  <span class="comment">//判断当前元素是否在nums2中出现 ,如果出现用j进行过存储索引</span></span><br><span class="line">   <span class="comment">//如果不出现为-1</span></span><br><span class="line">   <span class="keyword">if</span>(j &gt;= <span class="number">0</span> )&#123;  <span class="comment">//如果大于等于0证明出现了进行push</span></span><br><span class="line">      _result.push(nums1[i]) </span><br><span class="line">      nums2.splice(j,<span class="number">1</span>)  <span class="comment">//删除nums2 中的数据 避免重复</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> _result</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一</span></span><br><span class="line"><span class="keyword">const</span> intersect = <span class="function">(<span class="params">nums1,nums2</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> _result = [] <span class="comment">//定义一个空数组</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt;nums1.length;i++&gt;)&#123;</span><br><span class="line">    <span class="keyword">let</span> j =  nums2.indexOf(nums1[i])  <span class="comment">//判断当前元素是否在nums2中出现 ,如果出现用j进行过存储索引</span></span><br><span class="line">   <span class="comment">//如果不出现为-1</span></span><br><span class="line">   <span class="keyword">if</span>(j &gt;= <span class="number">0</span> )&#123;  <span class="comment">//如果大于等于0证明出现了进行push</span></span><br><span class="line">      _result.push(nums1[i]) </span><br><span class="line">      nums2.splice(j,<span class="number">1</span>)  <span class="comment">//删除nums2 中的数据 避免重复</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> _result</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//方法二</span></span><br><span class="line">function intersect(nums1:number[],nums2:number[]):number[]&#123;</span><br><span class="line">   <span class="keyword">return</span> nums1.filter(<span class="function"><span class="params">el</span> =&gt;</span> &#123;</span><br><span class="line">     <span class="keyword">const</span> index = nums2.indexOf(el)</span><br><span class="line">     <span class="keyword">if</span>(index &gt; <span class="number">-1</span>) nums2 = [...nums2.slice(<span class="number">0</span>,index),...nums.slice(index + <span class="number">1</span>)]</span><br><span class="line">     <span class="keyword">return</span> index &gt; <span class="number">-1</span>;</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 
   </div>
@@ -182,22 +224,22 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#350-两个数组的交集-II-indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环"><span class="toc-number">1.</span> <span class="toc-text">350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环)</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-keys、Object-values、Object-entries"><span class="toc-number">1.</span> <span class="toc-text">Object.keys、Object.values、Object.entries</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#普通函数和Map-有什么区别"><span class="toc-number">2.</span> <span class="toc-text">普通函数和Map 有什么区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转换对象"><span class="toc-number">2.0.1.</span> <span class="toc-text">转换对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#exercise"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">exercise</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解构赋值"><span class="toc-number">3.</span> <span class="toc-text">解构赋值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#350-两个数组的交集-II-indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环"><span class="toc-number">4.</span> <span class="toc-text">350 两个数组的交集 II  (indexOf检查是否另一个数组存在，哈希表记录元素出现的个数、序列优化循环)</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/23/Day6/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/23/Day6/&text=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/23/Day6/&is_video=false&description=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Day5:知识点记录&body=Check out this article: http://yoursite.com/2020/09/23/Day6/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/23/Day6/&name=Day5:知识点记录&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/23/Day6/&t=Day5:知识点记录" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/23/Day6/&text=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/23/Day6/&is_video=false&description=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Day6:知识点记录&body=Check out this article: http://yoursite.com/2020/09/23/Day6/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/23/Day6/&title=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/23/Day6/&name=Day6:知识点记录&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/23/Day6/&t=Day6:知识点记录" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
