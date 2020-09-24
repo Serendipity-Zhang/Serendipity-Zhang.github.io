@@ -117,7 +117,7 @@ topSarays({})
  * @param {number[]} digits
  * @return {number[]}
  */
-const plusOne = (digits) =>{  
+const plusOne = (digits) => {  
     for(let i = digits[i].length;i >= 0;i--){
       if(digits[i] !== 9){
         digits[i]++;
@@ -129,4 +129,5 @@ const plusOne = (digits) =>{
      const result = [1,...digits]
      return result
 }
+
 ```
