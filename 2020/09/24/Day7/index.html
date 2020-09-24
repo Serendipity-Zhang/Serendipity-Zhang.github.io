@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="算法题 加一">
+    <meta name="description" content="结构赋值可以立即将一个对象或者数组映射到多个变量上。 数组结构优雅写法123const [firstName,surName] &#x3D; &quot;lily Kantor&quot;.split(&#39; &#39;)console.log(firstName,surName) &#x2F;&#x2F;lily Kantorconsole.log(&quot;lily Kantor&quot;.split(&#39; &#39;)) &#x2F;&#x2F;[&quot;lily&quot;, &quot;Kantor&quot;]  数组的结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Day7:知识点记录">
 <meta property="og:url" content="http://yoursite.com/2020/09/24/Day7/index.html">
 <meta property="og:site_name" content="Serendipity-Zhang">
-<meta property="og:description" content="算法题 加一">
+<meta property="og:description" content="结构赋值可以立即将一个对象或者数组映射到多个变量上。 数组结构优雅写法123const [firstName,surName] &#x3D; &quot;lily Kantor&quot;.split(&#39; &#39;)console.log(firstName,surName) &#x2F;&#x2F;lily Kantorconsole.log(&quot;lily Kantor&quot;.split(&#39; &#39;)) &#x2F;&#x2F;[&quot;lily&quot;, &quot;Kantor&quot;]  数组的结构">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-24T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-23T14:42:13.730Z">
+<meta property="article:modified_time" content="2020-09-24T12:20:02.214Z">
 <meta property="article:author" content="zly">
 <meta name="twitter:card" content="summary">
     
@@ -78,8 +78,10 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
-        <li><a class="icon" href="/2020/09/23/video/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="/2020/09/23/Day6/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -107,7 +109,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法题-加一"><span class="toc-number">1.</span> <span class="toc-text">算法题 加一</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#结构赋值"><span class="toc-number">1.</span> <span class="toc-text">结构赋值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组结构优雅写法"><span class="toc-number">1.1.</span> <span class="toc-text">数组结构优雅写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的结构"><span class="toc-number">1.2.</span> <span class="toc-text">数组的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#剩余参数"><span class="toc-number">1.2.1.</span> <span class="toc-text">剩余参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认值"><span class="toc-number">1.2.2.</span> <span class="toc-text">默认值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象的结构"><span class="toc-number">1.3.</span> <span class="toc-text">对象的结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法题-加一"><span class="toc-number">2.</span> <span class="toc-text">算法题 加一</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -146,7 +148,47 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="算法题-加一"><a href="#算法题-加一" class="headerlink" title="算法题 加一"></a>算法题 加一</h1>
+    <h1 id="结构赋值"><a href="#结构赋值" class="headerlink" title="结构赋值"></a>结构赋值</h1><p>可以立即将一个对象或者数组映射到多个变量上。</p>
+<h2 id="数组结构优雅写法"><a href="#数组结构优雅写法" class="headerlink" title="数组结构优雅写法"></a>数组结构优雅写法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [firstName,surName] = <span class="string">"lily Kantor"</span>.split(<span class="string">' '</span>)</span><br><span class="line"><span class="built_in">console</span>.log(firstName,surName) <span class="comment">//lily Kantor</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"lily Kantor"</span>.split(<span class="string">' '</span>)) <span class="comment">//["lily", "Kantor"]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="数组的结构"><a href="#数组的结构" class="headerlink" title="数组的结构"></a>数组的结构</h2><ul>
+<li>将结构中的各个元素复制到变量中达到结构的目的,<code>数组本身并没有被修改</code></li>
+<li>对于不想要的元素,可以通过<code>逗号</code>来把它丢弃</li>
+<li>可以是任何迭代的对象，不仅仅是数组。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c] = <span class="string">"abc"</span>    <span class="comment">//["a", "b", "c"]</span></span><br><span class="line"><span class="keyword">let</span> [one,two,three] = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="built_in">console</span>.log([one,two,three])  <span class="comment">//[1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以赋值给等号左侧的任何内容</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">[user.name,user.surName] = <span class="string">"lily Kantor"</span>.split(<span class="string">' '</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(user.name) <span class="comment">//lily</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>与entries() 方法进行循环操作</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name:<span class="string">"Join"</span>,</span><br><span class="line">  age:<span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//循环遍历键值 (同样适用于Map)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> <span class="built_in">Object</span>.entries(user)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span>:<span class="subst">$&#123;value&#125;</span>`</span>); <span class="comment">// name:John, then age:30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>交换变量的值(技巧)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> guest = <span class="string">"jane"</span>;</span><br><span class="line"><span class="keyword">let</span> admin = <span class="string">"Pete"</span>;</span><br><span class="line"></span><br><span class="line">[guest, admin] = [admin, guest];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;guest&#125;</span> <span class="subst">$&#123;admin&#125;</span>`</span>) <span class="comment">//Pete jane</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a>剩余参数</h3><p>…</p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>默认值可以是复杂的表达式,也可以是函数调用</p>
+<h2 id="对象的结构"><a href="#对象的结构" class="headerlink" title="对象的结构"></a>对象的结构</h2><ul>
+<li>如果使用已有的变量,而不是用let ,我们需要用括号() ,<br>把它括起来,否则js会将主代码流当作一个代码块,进行语句分组。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> salaries = &#123;</span><br><span class="line">  <span class="string">"Join"</span>:<span class="number">100</span>,</span><br><span class="line">  <span class="string">"Pete"</span>:<span class="number">200</span>,</span><br><span class="line">  <span class="string">"Mary"</span>:<span class="number">30</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">topSarays(salaries)&#123;</span><br><span class="line">  <span class="keyword">let</span> max = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> maxName = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> [key,value] <span class="keyword">of</span> <span class="built_in">Object</span>.entries(salaries))&#123;</span><br><span class="line">    <span class="keyword">if</span>(max &lt; value)&#123;</span><br><span class="line">      max = value</span><br><span class="line">      maxName = key</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">topSarays(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="算法题-加一"><a href="#算法题-加一" class="headerlink" title="算法题 加一"></a>算法题 加一</h1><ul>
+<li>给定一个由整数组成的非空数组所表示的非负整数,在该数的基础上加一。</li>
+<li>最高位数字存放在数组的首位，数组中每个元素只存储单个数字。</li>
+<li>你可以假设除了整数0之外,这个整数不会以零开头。</li>
+</ul>
+<p>示例一 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入:[1,2,3]</span><br><span class="line">输出:[1,2,4]</span><br><span class="line">解释：输入数组表示数字123。</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">digits</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> plusOne = <span class="function">(<span class="params">digits</span>) =&gt;</span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = digits[i].length;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">      <span class="keyword">if</span>(digits[i] !== <span class="number">9</span>)&#123;</span><br><span class="line">        digits[i]++;</span><br><span class="line">        <span class="keyword">return</span> digits[i]</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        digits[i] = <span class="number">0</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">const</span> result = [<span class="number">1</span>,...digits]</span><br><span class="line">     <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
   </div>
   <div>
     <a href="https://github.com/Serendipity-Zhang/Serendipity-Zhang.github.io/tree/myblog/source/_posts/Day7.md" target="_blank">编辑</a>
@@ -176,7 +218,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#算法题-加一"><span class="toc-number">1.</span> <span class="toc-text">算法题 加一</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#结构赋值"><span class="toc-number">1.</span> <span class="toc-text">结构赋值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组结构优雅写法"><span class="toc-number">1.1.</span> <span class="toc-text">数组结构优雅写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的结构"><span class="toc-number">1.2.</span> <span class="toc-text">数组的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#剩余参数"><span class="toc-number">1.2.1.</span> <span class="toc-text">剩余参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认值"><span class="toc-number">1.2.2.</span> <span class="toc-text">默认值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象的结构"><span class="toc-number">1.3.</span> <span class="toc-text">对象的结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法题-加一"><span class="toc-number">2.</span> <span class="toc-text">算法题 加一</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
