@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="article">
+    <meta name="description" content="日期和时间283 移动零 12345678910111213141516171819202122232425262728293031323334353637383940const moveZeroes &#x3D; (nums) &#x3D;&gt;&amp;#123;   let j &#x3D; 0;   for(let i &#x3D;0;i&lt;nums.length;i++&gt;)&amp;#123;     if(nums[i]!&#x3D;&#x3D;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Day8:知识点记录">
 <meta property="og:url" content="http://yoursite.com/2020/09/25/Day8/index.html">
 <meta property="og:site_name" content="Serendipity-Zhang">
+<meta property="og:description" content="日期和时间283 移动零 12345678910111213141516171819202122232425262728293031323334353637383940const moveZeroes &#x3D; (nums) &#x3D;&gt;&amp;#123;   let j &#x3D; 0;   for(let i &#x3D;0;i&lt;nums.length;i++&gt;)&amp;#123;     if(nums[i]!&#x3D;&#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-25T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-26T23:56:29.706Z">
+<meta property="article:modified_time" content="2020-10-01T01:49:27.084Z">
 <meta property="article:author" content="zly">
 <meta name="twitter:card" content="summary">
     
@@ -107,7 +109,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#日期和时间"><span class="toc-number">1.</span> <span class="toc-text">日期和时间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置日期组件"><span class="toc-number">1.1.</span> <span class="toc-text">设置日期组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日期转化为数字-日期差值"><span class="toc-number">1.2.</span> <span class="toc-text">日期转化为数字,日期差值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Date-now"><span class="toc-number">1.2.1.</span> <span class="toc-text">Date.now()</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -146,7 +148,31 @@
   
 
   <div class="content" itemprop="articleBody">
-    
+    <h1 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h1><p>283 移动零</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> moveZeroes = <span class="function">(<span class="params">nums</span>) =&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">let</span> j = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">let</span> i =<span class="number">0</span>;i&lt;nums.length;i++&gt;)&#123;</span><br><span class="line">     <span class="keyword">if</span>(nums[i]!== <span class="number">0</span>)&#123;</span><br><span class="line">       nums[j] = nums[i];</span><br><span class="line">       j++;</span><br><span class="line">     &#125;<span class="comment">//非零元素处理</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">for</span>(i=j;i&lt;nums.length;i++&gt;)&#123;</span><br><span class="line">     nums[i] = <span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### new Date()</span><br><span class="line">我们通过时间戳来创建日期</span><br><span class="line">并且可以使用data.getTime() 将现有的<span class="built_in">Date</span>对象转换为时间戳</span><br><span class="line"></span><br><span class="line">&gt;<span class="number">01.01</span><span class="number">.1970</span>之前的日期带有负的时间戳  <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">-24</span> * <span class="number">3600</span> * <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">- 如果只有一个参数,并且是字符串,那么他会被自动解析。</span><br><span class="line">- 使用当前时区中给定的组件创建日期，只有前两个参数是必须的</span><br><span class="line">- 时间度量精确到<span class="number">1</span>毫秒(<span class="number">1</span>/<span class="number">1000</span>秒)</span><br><span class="line"></span><br><span class="line">## 访问日期组件</span><br><span class="line"> 从 <span class="built_in">Date</span> 对象中访问年、月等信息有多种方式：</span><br><span class="line">- getFullYear() 获取年份(<span class="number">4</span>位数)</span><br><span class="line">- getMonth() 获取月份,从<span class="number">0</span>到<span class="number">11</span></span><br><span class="line">- getDate() 获取当月的具体日期，从<span class="number">1</span>到<span class="number">31</span></span><br><span class="line">- getHours()</span><br><span class="line">- getMinutes()</span><br><span class="line">- getSeconds()</span><br><span class="line">- getMilliseconds()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- getDay() 获取一周中的第几天</span><br><span class="line"></span><br><span class="line">​<span class="string">``</span><span class="string">`txt</span></span><br><span class="line"><span class="string">UTC(协调世界时) UTC时区知名之一，比如UTC(协调世界时)提前0个小时,它被用作标准时间。</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>getTime() 返回日期的时间戳 从1970-1-1 00:00:00 UTC+0开始到现在所经过的毫秒数</p>
+</li>
+<li><p>getTimezoneOffset() 返回  UTC与本地时区之间的时差,以分钟为单位。</p>
+</li>
+</ul>
+<h2 id="设置日期组件"><a href="#设置日期组件" class="headerlink" title="设置日期组件"></a>设置日期组件</h2><ul>
+<li>setFullYear() </li>
+<li>setMouth()</li>
+<li>setDate()</li>
+<li>setHours()</li>
+<li>setMinutes()</li>
+<li>setSeconds()</li>
+<li>setMilliseconds()</li>
+<li>setTime() 使用自1970-01-01 00:00:00 UTC+0以来的毫秒数来设置整个日期</li>
+</ul>
+<h2 id="日期转化为数字-日期差值"><a href="#日期转化为数字-日期差值" class="headerlink" title="日期转化为数字,日期差值"></a>日期转化为数字,日期差值</h2><blockquote>
+<p>日期可以相减,相减的结果是以毫秒为单位时间差。这个作用可用于时间测量。</p>
+</blockquote>
+<h3 id="Date-now"><a href="#Date-now" class="headerlink" title="Date.now()"></a>Date.now()</h3><p>测量时间间隔</p>
+<p>返回当前的时间戳 相当于new Date().getTime()<br>许多天之前是哪个月几号</p>
+
   </div>
   <div>
     <a href="https://github.com/Serendipity-Zhang/Serendipity-Zhang.github.io/tree/myblog/source/_posts/Day8.md" target="_blank">编辑</a>
@@ -176,7 +202,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#日期和时间"><span class="toc-number">1.</span> <span class="toc-text">日期和时间</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置日期组件"><span class="toc-number">1.1.</span> <span class="toc-text">设置日期组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日期转化为数字-日期差值"><span class="toc-number">1.2.</span> <span class="toc-text">日期转化为数字,日期差值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Date-now"><span class="toc-number">1.2.1.</span> <span class="toc-text">Date.now()</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
